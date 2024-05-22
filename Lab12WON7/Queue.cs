@@ -21,7 +21,7 @@ namespace Lab12WON7
         {
             if (Count > capacity)
             {
-                Console.WriteLine("Stiva este plina");
+                Console.WriteLine("Coada este plina");
                 return;
             }
 
@@ -30,7 +30,10 @@ namespace Lab12WON7
 
         public T Dequeue()
         {
-            return array[--Count];
+            T result = array[0];
+            Count--;
+            Array.ConstrainedCopy(array,1,array, 0, Count);
+            return result;
         }
     }
 }
